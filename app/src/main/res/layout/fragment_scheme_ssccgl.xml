@@ -1,0 +1,55 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white"
+    tools:context="com.pinnacle.garorasu.course.Explore.ExploreFragment"
+    android:layout_centerInParent="?android:attr/windowFullscreen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill"
+            android:id="@+id/scheme1"
+            android:textSize="20dp"
+            android:text="@string/sscschemes"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Schemes of SSC CGL "
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:id="@+id/scheme2"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scheme3"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="@string/scheme"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/scheme4"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:text="@string/typesofschemes"/>
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

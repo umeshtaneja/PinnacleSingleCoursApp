@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SingleProductApp</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ssccglinfo">Staff Selection Commission commonly referred to as SSC every year organizes Combined Graduate Level (CGL) exam for the recruitment of eligible candidates to fill up about 30 posts under different departments.</string>
+    <string name="Eligibility">Candidates who are going to applying online for SSC CGL Recruitment please mention below points check out before applying such as Educational, Age prefer and Selection Process etc.</string>
+    <string name="sscschemes">SSC Combined Graduate Level Examination is an open competitive written examination conducted for the recruitment of personnel for Grade B and C categories posts in various Ministries, Departments and Organizations.</string>
+    <string name="pinnacleinfo">Digital education is the fast becoming main stream.Pinnacle, are trying to radically transform the education experience.And the journey ahead will be exciting.</string>
+    <string name="scheme">asdghgfdjghkuhkgjfjhgfk</string>
+    <string name="typesofschemes">Tier 1 (Preliminary) -  Written Examination (Objective Multiple Choice Type) \n\n Tier 2 (Mains) -  Written Examination (Objective Multiple Choice Type)\n \n Tier 3 (Descriptive Test) - Essay / Passage / Application / Letter Writing  \n\n Tier 4 (DEST/CPT) -  Computer Proficiency Test / Data Entry Skill Test / Document Verification</string>
+    <string name="educationalQualification">All those aspirants who want to apply the SSC CGL Exam must be passed Graduation Degree from an authorized Board of University/Institute.</string>
+    <string name="Agelimit">The Age Should be applying the depend your posts as per as different choice in Minimum and Maximum. An Age Relaxation will be available as per as Govt jobs.</string>
+</resources>

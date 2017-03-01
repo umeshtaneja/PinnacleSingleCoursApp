@@ -1,0 +1,79 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white"
+    tools:context="com.pinnacle.garorasu.course.Explore.ExploreFragment"
+    android:layout_centerInParent="?android:attr/windowFullscreen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/cgl1"
+        android:textSize="20dp"
+        android:text="@string/ssccglinfo"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eligibility"
+        android:textSize="30dp"
+        android:id="@+id/cgl2"
+        android:gravity="left"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cgl3"
+        android:textSize="20dp"
+        android:text="@string/Eligibility"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="30dp"
+        android:id="@+id/cgl4"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:text="Educational Qualification"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:id="@+id/cgl5"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/educationalQualification"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="30dp"
+        android:id="@+id/cgl6"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:text="Age Limit"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@android:color/black"
+        android:id="@+id/cgl7"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:text="@string/Agelimit"/>
+
+
+</LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+

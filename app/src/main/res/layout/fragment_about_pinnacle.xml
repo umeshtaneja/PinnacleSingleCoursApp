@@ -1,0 +1,32 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white"
+    tools:context="com.pinnacle.garorasu.course.Explore.ExploreFragment"
+    android:layout_centerInParent="?android:attr/windowFullscreen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PINNACLE"
+        android:gravity="center"
+        android:id="@+id/Pinnacle1"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Pinnacle2"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:text="@string/pinnacleinfo"/>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

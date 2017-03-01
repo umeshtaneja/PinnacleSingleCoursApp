@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Explore"
+            android:icon="@drawable/ic_home_outline_black_48dp"
+            android:title="Explore"
+            android:onClick="exploreOnClick"/>
+        <item
+            android:id="@+id/AboutUs"
+            android:icon="@drawable/ic_library_books_black_48dp"
+            android:title="About Us"
+            android:onClick="aboutUsOnClick"
+            />
+        <item
+            android:id="@+id/AboutSsc"
+            android:icon="@drawable/ic_book_open_page_variant_black_48dp"
+            android:title="About  SSC CGL"
+            android:onClick="aboutSsscglOnClick"/>
+        </group>
+    <group>
+
+        <item
+            android:id="@+id/ContactUs"
+            android:icon="@drawable/ic_email_secure_black_48dp"
+            android:title="Contact Us"
+            android:onClick="contactUsOnClick" />
+
+        <item
+            android:id="@+id/Share"
+            android:icon="@drawable/ic_share_variant_black_48dp"
+            android:title="Share"
+            android:onClick="shareOnClick"/>
+    </group>
+</menu>
+
+
+
