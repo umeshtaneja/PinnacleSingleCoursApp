@@ -88,6 +88,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     @Override
     public void lessonSelect(Lesson lesson) {
         Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
+        intent.putExtra("position",0);
         Log.d("SubjectActivity","lesson select"+lesson.getTitle());
         //intent.putExtra("subject", subject.getTitle());
         //intent.putExtra("color", subject.getColor());
@@ -95,22 +96,25 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
     }
 
-    @Override
-    public void practiceSelect(Practice practice) {
-        Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-        Log.d("SubjectActivity","practice select"+practice.getTitle());
-        //intent.putExtra("subject"getTitle());
-        //intent.putExtra("color", subject.ge, subject.getTitle());
-        //intent.putExtra("color", subject.getColor());
-        startActivity(intent);
-
-    }
 
     @Override
     public void videoSelect(Video video) {
         Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
+        intent.putExtra("position",1);
         Log.d("SubjectActivity","video select"+video.getTitle());
         //intent.putExtra("subject", subject.tColor());
+        startActivity(intent);
+
+    }
+    
+    @Override
+    public void practiceSelect(Practice practice) {
+        Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
+        intent.putExtra("position",2);
+        Log.d("SubjectActivity","practice select"+practice.getTitle());
+        //intent.putExtra("subject"getTitle());
+        //intent.putExtra("color", subject.ge, subject.getTitle());
+        //intent.putExtra("color", subject.getColor());
         startActivity(intent);
 
     }

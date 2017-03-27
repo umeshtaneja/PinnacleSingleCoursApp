@@ -46,7 +46,6 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

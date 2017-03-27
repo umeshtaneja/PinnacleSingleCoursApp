@@ -9,4 +9,7 @@
     <dimen name="text_heading">35sp</dimen>
     <dimen name="explore_card_spacing">20dp</dimen>
     <dimen name="text_normal">20sp</dimen>
+    <dimen name="video_preview_width">100dp</dimen>
+    <dimen name="video_preview_height">56dp</dimen>
+    <dimen name="video_frame_width">2dp</dimen>
 </resources>

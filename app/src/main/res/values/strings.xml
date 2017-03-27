@@ -16,4 +16,11 @@
     <string name="typesofschemes">Tier 1 (Preliminary) -  Written Examination (Objective Multiple Choice Type) \n\n Tier 2 (Mains) -  Written Examination (Objective Multiple Choice Type)\n \n Tier 3 (Descriptive Test) - Essay / Passage / Application / Letter Writing  \n\n Tier 4 (DEST/CPT) -  Computer Proficiency Test / Data Entry Skill Test / Document Verification</string>
     <string name="educationalQualification">All those aspirants who want to apply the SSC CGL Exam must be passed Graduation Degree from an authorized Board of University/Institute.</string>
     <string name="Agelimit">The Age Should be applying the depend your posts as per as different choice in Minimum and Maximum. An Age Relaxation will be available as per as Govt jobs.</string>
+    <string name="video_showed">Video showed</string>
+    <string name="one">one</string>
+    <string name="oneee">oneee</string>
+    <string name="url_hls">https://dl.pagal.link/upload_file/367/382/6821/Cricket%20Videos%202015%20MP4/Harbhajan%20Singh%2064%20From%2024%20Balls%20IPL%202015%20-%20MP4.mp4</string>
+    <string name="lesson_fragment">hello_lesson_fragment</string>
+    <string name="hello_practice_fragment">practice_fragment</string>
+
 </resources>
