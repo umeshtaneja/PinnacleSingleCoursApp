@@ -15,32 +15,32 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
    View view;
    int position;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        position = intent.getExtras().getInt("position");
-        Log.d("position", String.valueOf(position));
-        setContentView(R.layout.activity_detail);
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            Intent intent = getIntent();
+            position = intent.getExtras().getInt("position");
+            Log.d("position", String.valueOf(position));
+            setContentView(R.layout.activity_detail);
 
-        switch (position) {
+            switch (position) {
 
-            case 0: {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, new LessonDisplayFragment()).commit();
-                break;
+                case 0: {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new LessonDisplayFragment()).commit();
+                    break;
+                }
+                case 1: {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new VideoPlayFragment()).commit();
+                    break;
+                }
+                case 2: {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new PracticeDisplayFragment()).commit();
+                    break;
+                }
+                default: {}
+
             }
-            case 1: {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, new VideoPlayFragment()).commit();
-                break;
-            }
-            case 2: {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, new PracticeDisplayFragment()).commit();
-                break;
-            }
-            default: {}
 
         }
-
-    }
 
     @Override
     public void lessonSelected(Lesson lesson) {

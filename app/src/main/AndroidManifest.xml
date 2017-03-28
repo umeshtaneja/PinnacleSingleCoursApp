@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubjectActivity" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
     </application>
 
 </manifest>
