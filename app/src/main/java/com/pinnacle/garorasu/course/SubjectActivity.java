@@ -2,21 +2,22 @@ package com.pinnacle.garorasu.course;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import com.pinnacle.garorasu.course.Explore.Subject;
 import com.pinnacle.garorasu.course.Lesson.Lesson;
 import com.pinnacle.garorasu.course.Lesson.LessonListener;
-import com.pinnacle.garorasu.course.Lesson.LessonView;
 import com.pinnacle.garorasu.course.Practice.Practice;
 import com.pinnacle.garorasu.course.Practice.PracticeListener;
 import com.pinnacle.garorasu.course.Video.Video;
@@ -87,12 +88,17 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     }
     @Override
     public void lessonSelect(Lesson lesson) {
-        Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-        intent.putExtra("position",0);
+        //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
+       // intent.putExtra("position",0);
         Log.d("SubjectActivity","lesson select"+lesson.getTitle());
-        //intent.putExtra("subject", subject.getTitle());
-        //intent.putExtra("color", subject.getColor());
-        startActivity(intent);
+        //startActivity(intent);
+
+        String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
+        builder.setToolbarColor(ContextCompat.getColor(this, R.color.blue));
+
 
     }
 
@@ -109,13 +115,17 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     
     @Override
     public void practiceSelect(Practice practice) {
-        Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-        intent.putExtra("position",2);
+        //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
+       // intent.putExtra("position",2);
         Log.d("SubjectActivity","practice select"+practice.getTitle());
-        //intent.putExtra("subject"getTitle());
-        //intent.putExtra("color", subject.ge, subject.getTitle());
-        //intent.putExtra("color", subject.getColor());
-        startActivity(intent);
+       // startActivity(intent);
+
+        String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
+        builder.setToolbarColor(ContextCompat.getColor(this, R.color.blue));
+
 
     }
 }

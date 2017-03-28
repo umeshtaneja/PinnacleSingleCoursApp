@@ -57,7 +57,6 @@ public class LessonFragment extends Fragment implements LessonView {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
 
-
         return view;
     }
 
