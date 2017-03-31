@@ -4,16 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import com.pinnacle.garorasu.course.Lesson.Lesson;
 import com.pinnacle.garorasu.course.Practice.Practice;
 import com.pinnacle.garorasu.course.Video.Video;
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityView {
+    int position;
 
-   View view;
-   int position;
+
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -21,6 +20,8 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
             position = intent.getExtras().getInt("position");
             Log.d("position", String.valueOf(position));
             setContentView(R.layout.activity_detail);
+
+
 
             switch (position) {
 
@@ -41,6 +42,9 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
             }
 
         }
+
+
+
 
     @Override
     public void lessonSelected(Lesson lesson) {

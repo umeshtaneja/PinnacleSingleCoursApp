@@ -12,6 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class LessonDisplayFragment extends Fragment {
+
     public LessonDisplayFragment() {
         // Required empty public constructor
     }

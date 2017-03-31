@@ -31,7 +31,7 @@ public class ExploreFragment extends Fragment implements ExploreView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_explore, container, false);
+      final  View view = inflater.inflate(R.layout.fragment_explore, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.explore_recyclerView);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_explore_fragment);
         ExploreAdapter adapter = new ExploreAdapter(this,getContext());
@@ -41,9 +41,10 @@ public class ExploreFragment extends Fragment implements ExploreView {
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+
         return view;
     }
-
 
     @Override
     public void onDetach() {

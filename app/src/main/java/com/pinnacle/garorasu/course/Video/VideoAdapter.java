@@ -3,22 +3,14 @@ package com.pinnacle.garorasu.course.Video;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.pinnacle.garorasu.course.Lesson.Lesson;
-import com.pinnacle.garorasu.course.Lesson.LessonAdapter;
-import com.pinnacle.garorasu.course.Lesson.LessonPresenter;
-import com.pinnacle.garorasu.course.Lesson.LessonView;
 import com.pinnacle.garorasu.course.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -98,6 +90,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             });
 
         }
+
     }
+
 
 }

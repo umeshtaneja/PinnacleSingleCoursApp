@@ -1,14 +1,20 @@
 package com.pinnacle.garorasu.course.Lesson;
 
+import android.animation.Animator;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,11 +29,13 @@ public class LessonFragment extends Fragment implements LessonView {
     private TextView textview;
     private Subject subject;
     LessonListener mLessonListener;
+   NestedScrollView revealLesson;
+
 
     public LessonFragment() {
         // Required empty public constructor
-
     }
+
     public static LessonFragment newInstance(Subject subject) {
 
         Bundle args = new Bundle();
@@ -41,14 +49,16 @@ public class LessonFragment extends Fragment implements LessonView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.lessonfragment, container, false);
+        final View view = inflater.inflate(R.layout.lessonfragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.lesson_recyclerView);
-        textview=(TextView)view.findViewById(R.id.lesson_textview);
+        textview = (TextView) view.findViewById(R.id.lesson_textview);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_lesson_fragment);
-        if(getArguments() != null){
+        if (getArguments() != null) {
             subject = (Subject) getArguments().getSerializable("subject");
         }
-        adapter = new LessonAdapter(this,getContext(),subject.getColor());
+
+
+        adapter = new LessonAdapter(this, getContext(), subject.getColor());
         adapter.requstLesson();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
@@ -57,9 +67,33 @@ public class LessonFragment extends Fragment implements LessonView {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
 
-        return view;
-    }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    v.removeOnLayoutChangeListener(this);
+                    toggleInformationView(view);
+                }
+            });
+        }
+            return view;
+        }
 
+
+    private void toggleInformationView(View view) {
+        revealLesson = (NestedScrollView) view.findViewById(R.id.revealLesson);
+
+        int cx = (revealLesson.getLeft() + revealLesson.getRight())/2;
+        int cy = (revealLesson.getTop() + revealLesson.getBottom())/2;
+        int finalRadius = (int) Math.hypot((double) revealLesson.getWidth(), (double) revealLesson.getHeight());
+
+        Animator anim = ViewAnimationUtils.createCircularReveal(revealLesson, cx, cy, 0, finalRadius);
+        revealLesson.setVisibility(View.VISIBLE);
+        anim.setDuration(1000);
+        anim.setInterpolator(new LinearInterpolator());
+        anim.start();
+    }
 
     @Override
     public void onLessonClick(Lesson lesson) {
@@ -99,5 +133,4 @@ public class LessonFragment extends Fragment implements LessonView {
                     + " must implement LessonListener");
         }
     }
-
 }

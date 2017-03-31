@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,29 +17,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.pinnacle.garorasu.course.AboutPinnacle.AboutPinnacleFragment;
+import com.pinnacle.garorasu.course.AboutSSCCGL.AboutSsccglFragment;
 import com.pinnacle.garorasu.course.Explore.ExploreFragment;
 import com.pinnacle.garorasu.course.Explore.Subject;
-import com.pinnacle.garorasu.course.AboutSSCCGL.AboutSsccglFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,SubjectListener{
+        implements NavigationView.OnNavigationItemSelectedListener,SubjectListener {
 
     private SubjectListener msubjectListener;
     DrawerLayout drawer;
     Toolbar toolbar;
+    LinearLayout rootLayout;
+
+    boolean flag = true;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-        Window window=getWindow();
+        Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(Color.BLACK);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -52,7 +57,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         exploreFragment();
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -111,28 +118,29 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void exploreFragment(){
+    public void exploreFragment() {
         ExploreFragment fragment = new ExploreFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.main_content_frame_container,fragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.main_content_frame_container, fragment).commit();
+
     }
 
     @Override
     public void subjectSelect(Subject subject) {
 
-        Intent intent= new Intent(getApplicationContext(),SubjectActivity.class);
-        intent.putExtra("subjectObject",subject);
+        Intent intent = new Intent(getApplicationContext(), SubjectActivity.class);
+        intent.putExtra("subjectObject", subject);
         intent.putExtra("subject", subject.getTitle());
         intent.putExtra("color", subject.getColor());
         startActivity(intent);
     }
-    public void exploreOnClick(MenuItem item)
-    {
+
+    public void exploreOnClick(MenuItem item) {
 
         drawer.closeDrawer(GravityCompat.START);
         exploreFragment();
     }
-    public void aboutUsOnClick(MenuItem item)
-    {
+
+    public void aboutUsOnClick(MenuItem item) {
 
         getSupportActionBar().setTitle("About PINNACLE");
         drawer.closeDrawer(GravityCompat.START);
@@ -143,8 +151,8 @@ public class MainActivity extends AppCompatActivity
         ft.replace(R.id.main_content_frame_container, f1);
         ft.commit();
     }
-    public void aboutSsscglOnClick(MenuItem item)
-    {
+
+    public void aboutSsscglOnClick(MenuItem item) {
 
         getSupportActionBar().setTitle("About SSCCGL");
         drawer.closeDrawer(GravityCompat.START);
@@ -154,10 +162,10 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction ft = fn.beginTransaction();
         ft.replace(R.id.main_content_frame_container, f1);
         ft.commit();
-        Toast.makeText(getApplicationContext(),"SSCCGL",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "SSCCGL", Toast.LENGTH_SHORT).show();
     }
-    public void contactUsOnClick(MenuItem item)
-    {
+
+    public void contactUsOnClick(MenuItem item) {
 
         drawer.closeDrawer(GravityCompat.START);
         String uriText =
@@ -170,18 +178,20 @@ public class MainActivity extends AppCompatActivity
         Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
         sendIntent.setData(uri);
         startActivity(Intent.createChooser(sendIntent, "Send email"));
-        Toast.makeText(getApplicationContext(),"contact us",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "contact us", Toast.LENGTH_SHORT).show();
     }
-    public void shareOnClick(MenuItem item)
-    {
+
+    public void shareOnClick(MenuItem item) {
         drawer.closeDrawer(GravityCompat.START);
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
 
-        intent.putExtra(Intent.EXTRA_TEXT,"APP URL");
+        intent.putExtra(Intent.EXTRA_TEXT, "APP URL");
 
-        startActivity(Intent.createChooser(intent,"sharing"));
+        startActivity(Intent.createChooser(intent, "sharing"));
 
-        Toast.makeText(getApplicationContext(),"share",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "share", Toast.LENGTH_SHORT).show();
+
     }
+
 }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView
+    android:id="@+id/revealLesson"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@android:color/white"
+    android:background="@android:color/holo_purple"
     tools:context="com.pinnacle.garorasu.course.Explore.ExploreFragment"
     android:layout_centerInParent="?android:attr/windowFullscreen">
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">

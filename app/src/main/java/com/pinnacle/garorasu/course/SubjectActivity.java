@@ -30,6 +30,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     String color;
     ViewPager subjectViewPager;
     TabLayout tabLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         subject=subjectObject.getTitle();
         color = subjectObject.getColor();
         toolbar=(Toolbar)findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null)
         {
@@ -47,6 +50,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
             getSupportActionBar().setTitle(subjectObject.getTitle());
             Log.d("khkj","jkhjkhkjjk");
         }
+        // Set background color dynamically!!!
 
         toolbar.setBackgroundColor(Color.parseColor(color));
 
@@ -86,6 +90,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void lessonSelect(Lesson lesson) {
         //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
@@ -128,4 +133,9 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
 
     }
-}
+
+
+
+
+    }
+

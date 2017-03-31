@@ -34,6 +34,7 @@
         android:scaleType="fitXY"
         android:id="@+id/video_icon"/>
     <ImageView
+        android:onClick="videoPlay"
         android:id="@+id/video_small_icon"
         android:src="@android:drawable/ic_media_play"
         android:layout_centerInParent="true"
