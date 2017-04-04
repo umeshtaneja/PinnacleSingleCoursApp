@@ -1,5 +1,7 @@
 package com.pinnacle.garorasu.course.Video;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -29,6 +31,7 @@ public class VideoFragment extends Fragment implements VideoView {
     VideoListener mVideoListener;
 
 
+
     public VideoFragment() {
         // Required empty public constructor
     }
@@ -45,7 +48,7 @@ public class VideoFragment extends Fragment implements VideoView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.videofragment, container, false);
+       final View view = inflater.inflate(R.layout.videofragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.video_recyclerView);
         textview=(TextView)view.findViewById(R.id.video_textview);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_video_fragment);
@@ -61,8 +64,19 @@ public class VideoFragment extends Fragment implements VideoView {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    v.removeOnLayoutChangeListener(this);
+
+                }
+            });
+        }
         return view;
     }
+
     @Override
     public void onVideoClick(Video video) {
         mVideoListener.videoSelect(video);

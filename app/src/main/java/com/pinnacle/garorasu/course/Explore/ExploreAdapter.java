@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pinnacle.garorasu.course.R;
 import com.squareup.picasso.Picasso;
@@ -20,6 +19,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     private final Context context;
     private final ArrayList<Subject> allSubjects = new ArrayList<>();
     private final ExplorePresenterView explorePresenter;
+
 
     public ExploreAdapter(ExploreView exploreView,Context context){
         this.context = context;
@@ -48,6 +48,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
         return allSubjects.size();
     }
 
+
     @Override
     public void requstData() {
         explorePresenter.requestSubject();
@@ -60,11 +61,15 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+
         public ViewGroup viewGroup;
         public TextView mSubTitle,mSubBrief;
         public ImageView mSubImg;
         public ViewHolder(View itemView) {
             super(itemView);
+
+
+
             viewGroup = (ViewGroup) itemView.findViewById(R.id.explore_background);
             mSubTitle = (TextView) itemView.findViewById(R.id.explore_subject_title);
             mSubBrief = (TextView) itemView.findViewById(R.id.explore_subject_brief);
@@ -72,6 +77,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     explorePresenter.onSubjectSelect(allSubjects.get(getAdapterPosition()));
                    // Subject no=allSubjects.get(getAdapterPosition());
                 }

@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -45,6 +45,7 @@ public class LessonFragment extends Fragment implements LessonView {
         return fragment;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,13 +68,13 @@ public class LessonFragment extends Fragment implements LessonView {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                 @Override
                 public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                     v.removeOnLayoutChangeListener(this);
-                    toggleInformationView(view);
+                   toggleInformationView(view);
                 }
             });
         }
@@ -81,7 +82,7 @@ public class LessonFragment extends Fragment implements LessonView {
         }
 
 
-    private void toggleInformationView(View view) {
+  private void toggleInformationView(View view) {
         revealLesson = (NestedScrollView) view.findViewById(R.id.revealLesson);
 
         int cx = (revealLesson.getLeft() + revealLesson.getRight())/2;
@@ -91,8 +92,9 @@ public class LessonFragment extends Fragment implements LessonView {
         Animator anim = ViewAnimationUtils.createCircularReveal(revealLesson, cx, cy, 0, finalRadius);
         revealLesson.setVisibility(View.VISIBLE);
         anim.setDuration(1000);
-        anim.setInterpolator(new LinearInterpolator());
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.start();
+
     }
 
     @Override

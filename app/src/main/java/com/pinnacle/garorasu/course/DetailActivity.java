@@ -22,8 +22,7 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
             setContentView(R.layout.activity_detail);
 
 
-
-            switch (position) {
+        switch (position) {
 
                 case 0: {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, new LessonDisplayFragment()).commit();
@@ -42,9 +41,6 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
             }
 
         }
-
-
-
 
     @Override
     public void lessonSelected(Lesson lesson) {

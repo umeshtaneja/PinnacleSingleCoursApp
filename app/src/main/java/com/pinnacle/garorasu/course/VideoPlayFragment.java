@@ -39,6 +39,7 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
     private PreviewSeekBar seekBar;
     private SimpleExoPlayer previewPlayer;
     private SimpleExoPlayerView previewPlayerView;
+    int position;
 
     public VideoPlayFragment() {
         // Required empty public constructor
@@ -85,7 +86,10 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
 // Produces Extractor instances for parsing the media data.
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
 // This is the MediaSource representing the media to be played.
+
+
         Uri mp4VideoUri = Uri.parse(getResources().getString(R.string.url_hls));
+
         MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
                 dataSourceFactory, extractorsFactory, null, null);
 // Prepare the player with the source.

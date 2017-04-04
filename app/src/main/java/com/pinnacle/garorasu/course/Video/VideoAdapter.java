@@ -82,6 +82,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             GradientDrawable g = (GradientDrawable) mvideoSerialno.getBackground().getCurrent();
             g.setColor(Color.parseColor(color));
             itemView.setOnClickListener(new View.OnClickListener() {
+
+
                 @Override
                 public void onClick(View view) {
                     videoPresenter.onVideoSelect(allVideo.get(getAdapterPosition()));
@@ -90,8 +92,5 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             });
 
         }
-
     }
-
-
 }

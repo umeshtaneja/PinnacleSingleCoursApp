@@ -10,6 +10,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
@@ -36,11 +39,13 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject);
+
         Intent i =getIntent();
         subjectObject = (Subject) i.getSerializableExtra("subjectObject");
         subject=subjectObject.getTitle();
         color = subjectObject.getColor();
         toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setupWindowAnimations();
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null)
@@ -80,8 +85,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
                 subjectViewPager.setCurrentItem(tab.getPosition());
             }
         });
-
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId()==android.R.id.home)
@@ -130,12 +135,17 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         CustomTabsIntent customTabsIntent = builder.build();
         customTabsIntent.launchUrl(this, Uri.parse(url));
         builder.setToolbarColor(ContextCompat.getColor(this, R.color.blue));
-
-
     }
+    private void setupWindowAnimations() {
+        Log.d("SubjectActivity","Transtion occur fade");
+        Fade fade1 = new Fade();
+        fade1.setDuration(1000);
+        Fade fade = (Fade) TransitionInflater.from(this).inflateTransition(R.transition.activity_fade);
+        getWindow().setEnterTransition(fade);
 
-
-
-
+        Slide slide = new Slide();
+        slide.setDuration(1000);
+        getWindow().setReturnTransition(slide);
     }
+}
 

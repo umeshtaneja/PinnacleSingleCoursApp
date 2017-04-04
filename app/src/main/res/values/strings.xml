@@ -22,5 +22,6 @@
     <string name="url_hls">https://dl.pagal.link/upload_file/367/382/6821/Cricket%20Videos%202015%20MP4/Harbhajan%20Singh%2064%20From%2024%20Balls%20IPL%202015%20-%20MP4.mp4</string>
     <string name="lesson_fragment">hello_lesson_fragment</string>
     <string name="hello_practice_fragment">practice_fragment</string>
+    <string name="subjectTransition" />
 
 </resources>
