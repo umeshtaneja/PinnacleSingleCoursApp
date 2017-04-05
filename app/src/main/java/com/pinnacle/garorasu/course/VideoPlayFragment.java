@@ -42,8 +42,13 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
     private SimpleExoPlayer previewPlayer;
     private SimpleExoPlayerView previewPlayerView;
 
+<<<<<<< HEAD
     private int videovalue;
     public String videoPositionUrl;
+=======
+    DataSource.Factory dataSourceFactory;
+    ExtractorsFactory extractorsFactory;
+>>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
 
     public VideoPlayFragment() {
         // Required empty public constructor
@@ -111,14 +116,19 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
         Context context = getContext();
         DefaultBandwidthMeter defaultBandwidthMeter = new DefaultBandwidthMeter();
 // Produces DataSource instances through which media data is loaded.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getContext(),
+        dataSourceFactory = new DefaultDataSourceFactory(getContext(),
                 Util.getUserAgent(getContext(), "ExoPlayer"), defaultBandwidthMeter);
 // Produces Extractor instances for parsing the media data.
-        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+         extractorsFactory = new DefaultExtractorsFactory();
 // This is the MediaSource representing the media to be played.
 
 
+<<<<<<< HEAD
         Uri mp4VideoUri = Uri.parse(videoPositionUrl);
+=======
+        Uri mp4VideoUri = Uri.parse(getResources().getString(R.string.url_hls));
+
+>>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
         MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
                 dataSourceFactory, extractorsFactory, null, null);
 // Prepare the player with the source.
@@ -155,8 +165,15 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
    // public String returnString(){
 
 
+<<<<<<< HEAD
    // }
 }
+=======
+        }
+
+
+
+>>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
 
 
 

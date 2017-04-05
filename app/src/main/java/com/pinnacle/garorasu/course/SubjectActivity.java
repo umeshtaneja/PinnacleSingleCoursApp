@@ -10,8 +10,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -36,11 +40,13 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject);
+
         Intent i =getIntent();
         subjectObject = (Subject) i.getSerializableExtra("subjectObject");
         subject=subjectObject.getTitle();
         color = subjectObject.getColor();
         toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setupWindowAnimations();
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null)
@@ -61,10 +67,23 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
         subjectViewPager=(ViewPager) findViewById(R.id.v1);
         subjectViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(),getApplicationContext(),subjectObject));
+
+        subjectViewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            //Added animation on view Pager!!!
+
+            @Override
+            public void transformPage(View page, float position) {
+                final float normalizedposition = Math.abs(Math.abs(position) - 1);
+                page.setAlpha(normalizedposition);
+            }
+        });
+
         tabLayout=(TabLayout) findViewById(R.id.t1);
         tabLayout.setupWithViewPager(subjectViewPager);
+
         tabLayout.setBackgroundColor(Color.parseColor(color));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 subjectViewPager.setCurrentItem(tab.getPosition());
@@ -80,8 +99,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
                 subjectViewPager.setCurrentItem(tab.getPosition());
             }
         });
-
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId()==android.R.id.home)
@@ -93,10 +112,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
     @Override
     public void lessonSelect(Lesson lesson) {
-        //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-       // intent.putExtra("position",0);
         Log.d("SubjectActivity","lesson select"+lesson.getTitle());
-        //startActivity(intent);
+
 
         String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
@@ -119,22 +136,25 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     
     @Override
     public void practiceSelect(Practice practice) {
-        //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-       // intent.putExtra("position",2);
         Log.d("SubjectActivity","practice select"+practice.getTitle());
-       // startActivity(intent);
+
 
         String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         CustomTabsIntent customTabsIntent = builder.build();
         customTabsIntent.launchUrl(this, Uri.parse(url));
         builder.setToolbarColor(ContextCompat.getColor(this, R.color.blue));
-
-
     }
+    private void setupWindowAnimations() {
+        Log.d("SubjectActivity","Transtion occur fade");
+        Fade fade1 = new Fade();
+        fade1.setDuration(1000);
+        Fade fade = (Fade) TransitionInflater.from(this).inflateTransition(R.transition.activity_fade);
+        getWindow().setEnterTransition(fade);
 
-
-
-
+        Slide slide = new Slide();
+        slide.setDuration(1000);
+        getWindow().setReturnTransition(slide);
     }
+}
 

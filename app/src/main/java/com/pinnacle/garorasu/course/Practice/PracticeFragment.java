@@ -2,7 +2,6 @@ package com.pinnacle.garorasu.course.Practice;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pinnacle.garorasu.course.Explore.Subject;
-import com.pinnacle.garorasu.course.Lesson.LessonListener;
 import com.pinnacle.garorasu.course.R;
 import com.pinnacle.garorasu.course.SimpleDividerItemDecoration;
 
@@ -46,10 +44,11 @@ public class PracticeFragment extends Fragment implements PracticeView {
     private Subject subject;
 
 
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.practicefragment, container, false);
+        final View view = inflater.inflate(R.layout.practicefragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.practicetest_recyclerView);
         textview=(TextView)view.findViewById(R.id.practicetest_textview);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_practicetest_fragment);

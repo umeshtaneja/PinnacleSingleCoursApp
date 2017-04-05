@@ -58,6 +58,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         holder.mvideoTitle.setText(video.getTitle());
 
         holder.mvideodescription.setText(video.getvideoDescription());
+
     }
 
     @Override
@@ -91,7 +92,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             GradientDrawable g = (GradientDrawable) mvideoSerialno.getBackground().getCurrent();
             g.setColor(Color.parseColor(color));
             itemView.setOnClickListener(new View.OnClickListener() {
+<<<<<<< HEAD
                @Override
+=======
+
+                @Override
+>>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
                 public void onClick(View view) {
                     videoPresenter.onVideoSelect(allVideo.get(getAdapterPosition()));
                    Log.d("oneeeeeeeeeeeee", String.valueOf(getAdapterPosition()));
@@ -101,7 +107,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             });
 
         }
-
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
 }

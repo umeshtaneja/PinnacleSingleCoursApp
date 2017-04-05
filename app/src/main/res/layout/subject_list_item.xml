@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:gravity="center">
     <TextView
+        android:transitionName="@string/subjectTransition"
         android:id="@+id/explore_subject_title"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_heading"
@@ -38,5 +39,6 @@
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     </RelativeLayout>
 </FrameLayout>

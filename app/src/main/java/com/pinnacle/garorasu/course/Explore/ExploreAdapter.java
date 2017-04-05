@@ -3,12 +3,12 @@ package com.pinnacle.garorasu.course.Explore;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pinnacle.garorasu.course.R;
 import com.squareup.picasso.Picasso;
@@ -20,6 +20,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     private final Context context;
     private final ArrayList<Subject> allSubjects = new ArrayList<>();
     private final ExplorePresenterView explorePresenter;
+
 
     public ExploreAdapter(ExploreView exploreView,Context context){
         this.context = context;
@@ -41,12 +42,16 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
         Picasso.with(context).load(subject.getImgUrl()).fit().centerCrop()
                 .error(R.drawable.ic_menu_gallery)
                 .into(holder.mSubImg);
+        Log.d("Explore Adapter","Checking animation effect");
+
     }
+
 
     @Override
     public int getItemCount() {
         return allSubjects.size();
     }
+
 
     @Override
     public void requstData() {
@@ -60,11 +65,15 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+
         public ViewGroup viewGroup;
         public TextView mSubTitle,mSubBrief;
         public ImageView mSubImg;
         public ViewHolder(View itemView) {
             super(itemView);
+
+
+
             viewGroup = (ViewGroup) itemView.findViewById(R.id.explore_background);
             mSubTitle = (TextView) itemView.findViewById(R.id.explore_subject_title);
             mSubBrief = (TextView) itemView.findViewById(R.id.explore_subject_brief);
@@ -72,6 +81,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     explorePresenter.onSubjectSelect(allSubjects.get(getAdapterPosition()));
                    // Subject no=allSubjects.get(getAdapterPosition());
                 }
