@@ -73,7 +73,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
             @Override
             public void transformPage(View page, float position) {
-                page.setRotationY(position * -30);;
+                final float normalizedposition = Math.abs(Math.abs(position) - 1);
+                page.setAlpha(normalizedposition);
             }
         });
 
@@ -82,6 +83,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
         tabLayout.setBackgroundColor(Color.parseColor(color));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 subjectViewPager.setCurrentItem(tab.getPosition());
