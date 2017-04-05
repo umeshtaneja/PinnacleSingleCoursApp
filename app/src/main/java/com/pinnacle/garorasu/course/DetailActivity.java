@@ -8,6 +8,7 @@ import android.util.Log;
 import com.pinnacle.garorasu.course.Lesson.Lesson;
 import com.pinnacle.garorasu.course.Practice.Practice;
 import com.pinnacle.garorasu.course.Video.Video;
+import com.pinnacle.garorasu.course.Video.VideoFragment;
 
 public class DetailActivity extends AppCompatActivity implements DetailActivityView {
     int position;
@@ -26,11 +27,12 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
             switch (position) {
 
                 case 0: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new LessonDisplayFragment()).commit();
-                    break;
+                  getSupportFragmentManager().beginTransaction().replace(R.id.container, new LessonDisplayFragment()).commit();
+                   break;
                 }
                 case 1: {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, new VideoPlayFragment()).commit();
+                    Log.d("position","video play fragment selected");
                     break;
                 }
                 case 2: {
@@ -42,9 +44,6 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
             }
 
         }
-
-
-
 
     @Override
     public void lessonSelected(Lesson lesson) {

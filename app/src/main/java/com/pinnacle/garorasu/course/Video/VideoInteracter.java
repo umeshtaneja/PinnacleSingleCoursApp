@@ -1,5 +1,8 @@
 package com.pinnacle.garorasu.course.Video;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 /**
@@ -8,6 +11,8 @@ import java.util.ArrayList;
 
 public class VideoInteracter implements VideoInteracterView {
     private final VideoPresenter presenter;
+    DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance().getReference("videos");
+
 
     public VideoInteracter(VideoPresenter videoPresenter) {
         this.presenter=videoPresenter;
@@ -16,6 +21,7 @@ public class VideoInteracter implements VideoInteracterView {
     @Override
     public void requestVideo() {
         ArrayList<Video> allVideo = VideoInfo.getAllVideo();
+
         for(Video video:allVideo){
             presenter.sendVideoToAdapter(video);
         }

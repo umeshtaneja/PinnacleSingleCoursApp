@@ -16,8 +16,8 @@ public class VideoPresenter implements VideoPresenterView{
         this.view=videoView;
         this.interactor = new VideoInteracter(this);
 
-
     }
+
 
     @Override
     public void onVideoSelect(Video video) {
@@ -25,6 +25,7 @@ public class VideoPresenter implements VideoPresenterView{
             view.onVideoClick(video);
         }
     }
+
 
     @Override
     public void requestVideo() {

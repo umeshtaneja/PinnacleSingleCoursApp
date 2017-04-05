@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1050867874000",
+    "firebase_url": "https://pinnaclesinglecoursapp.firebaseio.com",
+    "project_id": "pinnaclesinglecoursapp",
+    "storage_bucket": "pinnaclesinglecoursapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050867874000:android:7d5727912d066d17",
+        "android_client_info": {
+          "package_name": "com.pinnacle.garorasu.course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050867874000-k8vvfgcdrleo5s1rjju325dh2fdl49do.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pinnacle.garorasu.course",
+            "certificate_hash": "3b80ff189495a64be5927723aec7a7ebb51409d5"
+          }
+        },
+        {
+          "client_id": "1050867874000-eq5i56r9lnc36t3b1mric2bqht73emju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpA5mxQNzJVCv8R_511sP7z_n57myKVuU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050867874000-eq5i56r9lnc36t3b1mric2bqht73emju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

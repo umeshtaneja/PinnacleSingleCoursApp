@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import com.pinnacle.garorasu.course.R;
 
 import java.util.ArrayList;
 
+import static android.R.attr.value;
+
 /**
  * Created by Ideal on 2/18/2017.
  */
@@ -21,17 +24,24 @@ import java.util.ArrayList;
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> implements VideoAdapterView {
 
     private final Context context;
+
     //private final VideoView videoView;
     private final VideoPresenterView videoPresenter;
     private final String color;
     private final ArrayList<Video> allVideo = new ArrayList<>();
+
+    public static int videoPosition;
+
 
     public VideoAdapter(VideoView videoView, Context context,String color) {
         this.context = context;
         this.color = color;
         //  this.videoView = videoView;
         videoPresenter= new VideoPresenter(this, videoView);
+    }
 
+    public static int getVideoPosition() {
+        return videoPosition;
     }
 
     @Override
@@ -46,6 +56,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         Video video = allVideo.get(position);
         holder.mvideoSerialno.setText(video.getSerialno());
         holder.mvideoTitle.setText(video.getTitle());
+
         holder.mvideodescription.setText(video.getvideoDescription());
     }
 
@@ -55,12 +66,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         return allVideo.size();
     }
 
-
     @Override
     public void requstVideo() {
         videoPresenter.requestVideo();
     }
-
 
     @Override
     public void addVideo(Video video) {
@@ -82,16 +91,17 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             GradientDrawable g = (GradientDrawable) mvideoSerialno.getBackground().getCurrent();
             g.setColor(Color.parseColor(color));
             itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
+               @Override
                 public void onClick(View view) {
                     videoPresenter.onVideoSelect(allVideo.get(getAdapterPosition()));
-
+                   Log.d("oneeeeeeeeeeeee", String.valueOf(getAdapterPosition()));
+                   videoPosition = getAdapterPosition();
+                   Log.d("video position is", String.valueOf(videoPosition));
                 }
             });
 
         }
 
     }
-
 
 }

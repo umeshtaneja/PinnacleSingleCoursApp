@@ -9,15 +9,14 @@ public class Video {
     private String title;
     private String videoDescription;
    // private String id;
-  //  private String url;
+    private String url;
 
-    public Video(String serialno,String title, String videoDescription) {
+    public Video(String serialno,String title, String videoDescription,String url) {
         this.serialno = serialno;
         this.title = title;
         this.videoDescription = videoDescription;
        // this.id=id;
-        //this.url=url;
-
+        this.url=url;
     }
 
     public String getSerialno() {
@@ -34,7 +33,7 @@ public class Video {
 
   //  public String getId() {return id; }
 
-   // public String getUrl() {return url;}
+    public String getUrl() {return url;}
 
     public void setSerialno(String serialno) {
         this.serialno = serialno;
@@ -50,5 +49,5 @@ public class Video {
 
       //  public void setId(String id) {this.id = id;}
 
-      // public void setUrl(String url) {this.url = url;}
+       public void setUrl(String url) {this.url = url;}
 }

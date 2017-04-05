@@ -28,10 +28,10 @@ public class VideoFragment extends Fragment implements VideoView {
     private Subject subject;
     VideoListener mVideoListener;
 
-
     public VideoFragment() {
         // Required empty public constructor
     }
+
     public static VideoFragment newInstance(Subject subject) {
 
         Bundle args = new Bundle();

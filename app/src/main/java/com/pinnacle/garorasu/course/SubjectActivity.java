@@ -104,7 +104,6 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         customTabsIntent.launchUrl(this, Uri.parse(url));
         builder.setToolbarColor(ContextCompat.getColor(this, R.color.blue));
 
-
     }
 
 
