@@ -69,6 +69,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         subjectViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(),getApplicationContext(),subjectObject));
 
         subjectViewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            //Added animation on view Pager!!!
+
             @Override
             public void transformPage(View page, float position) {
                 page.setRotationY(position * -30);;
