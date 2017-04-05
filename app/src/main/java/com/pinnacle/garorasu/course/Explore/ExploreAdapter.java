@@ -3,6 +3,7 @@ package com.pinnacle.garorasu.course.Explore;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,10 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
         Picasso.with(context).load(subject.getImgUrl()).fit().centerCrop()
                 .error(R.drawable.ic_menu_gallery)
                 .into(holder.mSubImg);
+        Log.d("Explore Adapter","Checking animation effect");
+
     }
+
 
     @Override
     public int getItemCount() {

@@ -47,6 +47,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         holder.mvideoSerialno.setText(video.getSerialno());
         holder.mvideoTitle.setText(video.getTitle());
         holder.mvideodescription.setText(video.getvideoDescription());
+
     }
 
     @Override

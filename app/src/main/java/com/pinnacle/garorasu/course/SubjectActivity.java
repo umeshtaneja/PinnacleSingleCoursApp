@@ -112,10 +112,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
     @Override
     public void lessonSelect(Lesson lesson) {
-        //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-       // intent.putExtra("position",0);
         Log.d("SubjectActivity","lesson select"+lesson.getTitle());
-        //startActivity(intent);
+
 
         String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
@@ -139,10 +137,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     
     @Override
     public void practiceSelect(Practice practice) {
-        //Intent intent= new Intent(getApplicationContext(),DetailActivity.class);
-       // intent.putExtra("position",2);
         Log.d("SubjectActivity","practice select"+practice.getTitle());
-       // startActivity(intent);
+
 
         String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
