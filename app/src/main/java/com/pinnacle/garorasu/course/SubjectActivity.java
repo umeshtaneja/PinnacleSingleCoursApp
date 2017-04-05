@@ -15,6 +15,7 @@ import android.transition.Slide;
 import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -66,8 +67,17 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
         subjectViewPager=(ViewPager) findViewById(R.id.v1);
         subjectViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(),getApplicationContext(),subjectObject));
+
+        subjectViewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(View page, float position) {
+                page.setRotationY(position * -30);;
+            }
+        });
+
         tabLayout=(TabLayout) findViewById(R.id.t1);
         tabLayout.setupWithViewPager(subjectViewPager);
+
         tabLayout.setBackgroundColor(Color.parseColor(color));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

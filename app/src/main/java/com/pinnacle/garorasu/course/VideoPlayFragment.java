@@ -39,7 +39,9 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
     private PreviewSeekBar seekBar;
     private SimpleExoPlayer previewPlayer;
     private SimpleExoPlayerView previewPlayerView;
-    int position;
+
+    DataSource.Factory dataSourceFactory;
+    ExtractorsFactory extractorsFactory;
 
     public VideoPlayFragment() {
         // Required empty public constructor
@@ -81,10 +83,10 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
         Context context = getContext();
         DefaultBandwidthMeter defaultBandwidthMeter = new DefaultBandwidthMeter();
 // Produces DataSource instances through which media data is loaded.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getContext(),
+        dataSourceFactory = new DefaultDataSourceFactory(getContext(),
                 Util.getUserAgent(getContext(), "ExoPlayer"), defaultBandwidthMeter);
 // Produces Extractor instances for parsing the media data.
-        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+         extractorsFactory = new DefaultExtractorsFactory();
 // This is the MediaSource representing the media to be played.
 
 
@@ -128,7 +130,11 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
 
     }
 
-    }
+
+        }
+
+
+
 
 
 

@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.pinnacle.garorasu.course.Lesson.Lesson;
 import com.pinnacle.garorasu.course.Practice.Practice;
 import com.pinnacle.garorasu.course.Video.Video;
 
-public class DetailActivity extends AppCompatActivity implements DetailActivityView {
+public class DetailActivity extends AppCompatActivity implements DetailActivityView , View.OnClickListener{
     int position;
 
 
@@ -54,6 +55,11 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityV
 
     @Override
     public void videoSelected(Video video) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

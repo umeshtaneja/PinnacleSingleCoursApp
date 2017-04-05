@@ -83,7 +83,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             g.setColor(Color.parseColor(color));
             itemView.setOnClickListener(new View.OnClickListener() {
 
-
                 @Override
                 public void onClick(View view) {
                     videoPresenter.onVideoSelect(allVideo.get(getAdapterPosition()));
