@@ -59,7 +59,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
         if (position > lastPosition) {
             ScaleAnimation anim = new ScaleAnimation(0.0f,1.0f,0.0f,1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-            anim.setDuration(1000);
+            anim.setDuration(1500);
             view.startAnimation(anim);
             lastPosition = position;
         }
