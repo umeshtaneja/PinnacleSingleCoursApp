@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class VideoInteracter implements VideoInteracterView {
     private final VideoPresenter presenter;
-    DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance().getReference("videos");
+  //  DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance().getReference("videos");
 
 
     public VideoInteracter(VideoPresenter videoPresenter) {

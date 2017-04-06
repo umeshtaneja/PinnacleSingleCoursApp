@@ -42,13 +42,12 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
     private SimpleExoPlayer previewPlayer;
     private SimpleExoPlayerView previewPlayerView;
 
-<<<<<<< HEAD
     private int videovalue;
     public String videoPositionUrl;
-=======
+
     DataSource.Factory dataSourceFactory;
     ExtractorsFactory extractorsFactory;
->>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
+
 
     public VideoPlayFragment() {
         // Required empty public constructor
@@ -70,17 +69,24 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
         switch(videovalue){
             case 0:
             {
-                videoPositionUrl = "https://dl.pagal.link/upload_file/367/382/6821/Cricket%20Videos%202015%20MP4/Harbhajan%20Singh%2064%20From%2024%20Balls%20IPL%202015%20-%20MP4.mp4";
+                videoPositionUrl = "https://firebasestorage.googleapis.com/v0/b/pinnaclesinglecoursapp.appspot.com/o/ssc%20cgl%20tier%204%20-%20CPT%20-%20DEST%20how%20to%20operate%20Pinnacle%20resources.mp4?alt=media&token=435bccea-237c-45a2-8a71-546f2f47052d";
                 Log.d("value","case 0 selected");
                 break;
              }
 
             case 1:
             {
-                videoPositionUrl = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/220%20Android%20Navigation%20Drawer%20Tutorial%20Part%203%20-%20coursetro.com.mp4?alt=media&token=a4703569-e291-4da9-bede-931d5c5c9039";
+                videoPositionUrl = "https://firebasestorage.googleapis.com/v0/b/pinnaclesinglecoursapp.appspot.com/o/Earn%20money%20-%20Become%20Value%20partner%20of%20Pinnacle%20I%20hurry%20up%20to%20join%20at%20zero%20licence%20fee.mp4?alt=media&token=b243001b-4b02-4d39-8b57-f6128913fc56";
                 Log.d("value","case 1 selected");
                 break;
               }
+            case 2:
+            {
+                videoPositionUrl = "https://firebasestorage.googleapis.com/v0/b/pinnaclesinglecoursapp.appspot.com/o/Pinnacle%20Group%20recruiting%201000%2B%20virtual%20employees%20-%20Join%20Pinnacle.mp4?alt=media&token=a7fb6ddb-c12d-4153-a2f6-023730bdb841";
+                Log.d("value","case 2 selected");
+                break;
+            }
+
             default: {
 
             }
@@ -123,17 +129,15 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
 // This is the MediaSource representing the media to be played.
 
 
-<<<<<<< HEAD
-        Uri mp4VideoUri = Uri.parse(videoPositionUrl);
-=======
-        Uri mp4VideoUri = Uri.parse(getResources().getString(R.string.url_hls));
+        Uri mp4VideoUri = null;
 
->>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
-        MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
+        mp4VideoUri = Uri.parse(videoPositionUrl);
+
+                MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
                 dataSourceFactory, extractorsFactory, null, null);
 // Prepare the player with the source.
         previewPlayer.prepare(videoSource);
-
+        previewPlayer.setPlayWhenReady(true);
         return view;
       }
     @Override
@@ -153,6 +157,7 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
             // Round the offset before seeking. The sample uses 1% or 10% of the video per each thumbnail
             previewPlayer.seekTo((long) ((float) (seekBar.getProgress() / seekBar.getMax()) * previewPlayer.getDuration()));
             previewPlayer.setPlayWhenReady(false);
+
         }
     }
 
@@ -165,15 +170,13 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
    // public String returnString(){
 
 
-<<<<<<< HEAD
    // }
 }
-=======
-        }
 
 
 
->>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
+
+
 
 
 

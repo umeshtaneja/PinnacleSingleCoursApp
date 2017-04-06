@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 
@@ -16,7 +17,7 @@ import com.pinnacle.garorasu.course.Video.VideoFragment;
  * Created by Ideal on 2/18/2017.
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter{
+public class ViewPagerAdapter extends FragmentStatePagerAdapter{
     String[] a={"Lesson","Video","Practice"};
     private Subject subject;
 

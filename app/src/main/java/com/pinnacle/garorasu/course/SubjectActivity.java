@@ -46,7 +46,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         subject=subjectObject.getTitle();
         color = subjectObject.getColor();
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-        setupWindowAnimations();
+
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null)
@@ -145,16 +145,6 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
         customTabsIntent.launchUrl(this, Uri.parse(url));
         builder.setToolbarColor(ContextCompat.getColor(this, R.color.blue));
     }
-    private void setupWindowAnimations() {
-        Log.d("SubjectActivity","Transtion occur fade");
-        Fade fade1 = new Fade();
-        fade1.setDuration(1000);
-        Fade fade = (Fade) TransitionInflater.from(this).inflateTransition(R.transition.activity_fade);
-        getWindow().setEnterTransition(fade);
 
-        Slide slide = new Slide();
-        slide.setDuration(1000);
-        getWindow().setReturnTransition(slide);
-    }
 }
 

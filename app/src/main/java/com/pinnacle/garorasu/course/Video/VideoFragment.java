@@ -30,11 +30,10 @@ public class VideoFragment extends Fragment implements VideoView {
     private Subject subject;
     VideoListener mVideoListener;
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 6eee60057781dfae0845b4362e4a05b7f72295cd
+
+
     public VideoFragment() {
         // Required empty public constructor
     }
