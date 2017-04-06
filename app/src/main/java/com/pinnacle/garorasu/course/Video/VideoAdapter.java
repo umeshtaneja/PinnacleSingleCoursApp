@@ -24,6 +24,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     //private final VideoView videoView;
     private final VideoPresenterView videoPresenter;
     private final String color;
+    private int lastPosition = -1;
+
     private final ArrayList<Video> allVideo = new ArrayList<>();
 
     public VideoAdapter(VideoView videoView, Context context,String color) {
@@ -42,13 +44,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(VideoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(VideoAdapter.ViewHolder holder,final int position) {
         Video video = allVideo.get(position);
         holder.mvideoSerialno.setText(video.getSerialno());
         holder.mvideoTitle.setText(video.getTitle());
         holder.mvideodescription.setText(video.getvideoDescription());
 
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -88,8 +92,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 public void onClick(View view) {
                     videoPresenter.onVideoSelect(allVideo.get(getAdapterPosition()));
 
+
                 }
             });
+
 
         }
     }

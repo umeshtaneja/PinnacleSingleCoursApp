@@ -63,6 +63,8 @@ public class VideoFragment extends Fragment implements VideoView {
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getContext()));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {

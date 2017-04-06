@@ -25,10 +25,12 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     private final ArrayList<Lesson> allLessons = new ArrayList<>();
     private final LessonPresenterView lessonPresenter;
     private final String color;
+    private int lastPosition = -1;
 
-    public LessonAdapter(LessonView lessonView,Context context,String color){
+    public LessonAdapter(LessonView lessonView,Context context,String color,int lastPosition){
         this.context = context;
         this.color = color;
+        this.lastPosition=lastPosition;
         lessonPresenter = new LessonPresenter(this,lessonView);
     }
 
@@ -47,12 +49,21 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
         holder.mlessonserialno.setText(lesson.getSerialno());
         holder.mlessonTitle.setText(lesson.getTitle());
         holder.mlessondescription.setText(lesson.getLessonDescription());
-        setScaleAnimation(holder.itemView);
+        setScaleAnimation(holder.itemView,position);
+
+
     }
-    private void setScaleAnimation(View view) {
-        ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        anim.setDuration(1000);
-        view.startAnimation(anim);
+
+
+    private void setScaleAnimation(View view,int position) {
+
+        if (position > lastPosition) {
+            ScaleAnimation anim = new ScaleAnimation(0.0f,1.0f,0.0f,1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            anim.setDuration(1000);
+            view.startAnimation(anim);
+            lastPosition = position;
+        }
+
     }
     @Override
     public int getItemCount() {
@@ -74,7 +85,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mlessonTitle,mlessondescription,mlessonserialno;
-
+        private int lastPosition = -1;
         public ViewHolder(View itemView) {
             super(itemView);
             mlessonserialno=(TextView)itemView.findViewById(R.id.lesson_serial_no);
@@ -90,6 +101,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
                 }
             });
+
 
         }
     }

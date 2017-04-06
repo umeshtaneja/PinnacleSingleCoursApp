@@ -33,8 +33,11 @@
         android:layout_below="@id/video_title"
         android:layout_marginLeft="50dp"
         android:scaleType="fitXY"
-        android:id="@+id/video_icon"/>
+        android:elevation="2dp"
+        android:id="@+id/video_icon"
+        android:transitionName="videoImage"/>
     <ImageView
+        android:elevation="2dp"
         android:id="@+id/video_small_icon"
         android:src="@android:drawable/ic_media_play"
         android:layout_centerInParent="true"

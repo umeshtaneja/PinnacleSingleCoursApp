@@ -30,6 +30,7 @@ public class LessonFragment extends Fragment implements LessonView {
     private Subject subject;
     LessonListener mLessonListener;
    NestedScrollView revealLesson;
+    private int lastPosition;
 
 
     public LessonFragment() {
@@ -59,7 +60,7 @@ public class LessonFragment extends Fragment implements LessonView {
         }
 
 
-        adapter = new LessonAdapter(this, getContext(), subject.getColor());
+        adapter = new LessonAdapter(this, getContext(), subject.getColor(), lastPosition);
         adapter.requstLesson();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
@@ -85,8 +86,8 @@ public class LessonFragment extends Fragment implements LessonView {
   private void toggleInformationView(View view) {
         revealLesson = (NestedScrollView) view.findViewById(R.id.revealLesson);
 
-        int cx = (revealLesson.getLeft() + revealLesson.getRight())/2;
-        int cy = (revealLesson.getTop() + revealLesson.getBottom())/2;
+        int cx = (revealLesson.getLeft() + revealLesson.getRight());
+        int cy = (revealLesson.getTop() + revealLesson.getBottom());
         int finalRadius = (int) Math.hypot((double) revealLesson.getWidth(), (double) revealLesson.getHeight());
 
         Animator anim = ViewAnimationUtils.createCircularReveal(revealLesson, cx, cy, 0, finalRadius);
