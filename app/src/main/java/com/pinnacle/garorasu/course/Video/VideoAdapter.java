@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,7 +60,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
         holder.mvideodescription.setText(video.getvideoDescription());
 
+//        setFadeAnimations(holder.itemView);
     }
+//        private void setFadeAnimations(View view){
+//            AlphaAnimation anim = new AlphaAnimation(0.0f,20.f);
+//            anim.setDuration(10000);
+//            view.startAnimation(anim);
+
+       // }
+
 
     @Override
     public int getItemCount() {
@@ -92,7 +101,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             GradientDrawable g = (GradientDrawable) mvideoSerialno.getBackground().getCurrent();
             g.setColor(Color.parseColor(color));
             itemView.setOnClickListener(new View.OnClickListener() {
-
 
                 @Override
 

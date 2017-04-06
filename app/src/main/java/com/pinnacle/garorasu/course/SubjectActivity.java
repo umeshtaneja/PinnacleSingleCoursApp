@@ -136,7 +136,7 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     
     @Override
     public void practiceSelect(Practice practice) {
-        Log.d("SubjectActivity","practice select"+practice.getTitle());
+        Log.d("SubjectActivity","practice selected"+practice.getTitle());
 
 
         String url = "https://firebasestorage.googleapis.com/v0/b/kuch-hee.appspot.com/o/23s.html?alt=media&token=2a1852f4-8f33-48e4-a9d2-81a9a814e2d0";

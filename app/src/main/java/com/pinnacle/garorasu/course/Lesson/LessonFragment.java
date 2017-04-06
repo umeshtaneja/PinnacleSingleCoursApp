@@ -29,7 +29,7 @@ public class LessonFragment extends Fragment implements LessonView {
     private TextView textview;
     private Subject subject;
     LessonListener mLessonListener;
-   //NestedScrollView revealLesson;
+   NestedScrollView revealLesson;
 
 
     public LessonFragment() {
@@ -74,7 +74,7 @@ public class LessonFragment extends Fragment implements LessonView {
                 @Override
                 public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                     v.removeOnLayoutChangeListener(this);
-                  // toggleInformationView(view);
+                   toggleInformationView(view);
                 }
             });
         }
@@ -82,11 +82,11 @@ public class LessonFragment extends Fragment implements LessonView {
         }
 
 
-  /*private void toggleInformationView(View view) {
+  private void toggleInformationView(View view) {
         revealLesson = (NestedScrollView) view.findViewById(R.id.revealLesson);
 
-        int cx = (revealLesson.getLeft() + revealLesson.getRight())/2;
-        int cy = (revealLesson.getTop() + revealLesson.getBottom())/2;
+        int cx = (revealLesson.getLeft() + revealLesson.getRight());
+        int cy = (revealLesson.getTop() + revealLesson.getBottom());
         int finalRadius = (int) Math.hypot((double) revealLesson.getWidth(), (double) revealLesson.getHeight());
 
         Animator anim = ViewAnimationUtils.createCircularReveal(revealLesson, cx, cy, 0, finalRadius);
@@ -95,7 +95,7 @@ public class LessonFragment extends Fragment implements LessonView {
         anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.start();
 
-    }*/
+    }
 
     @Override
     public void onLessonClick(Lesson lesson) {
