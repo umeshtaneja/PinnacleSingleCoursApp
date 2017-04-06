@@ -131,7 +131,7 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
     }
 
 
-        }
+}
 
 
 
