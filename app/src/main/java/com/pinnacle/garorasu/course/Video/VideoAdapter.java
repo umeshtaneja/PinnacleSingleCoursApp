@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,9 +50,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         holder.mvideoSerialno.setText(video.getSerialno());
         holder.mvideoTitle.setText(video.getTitle());
         holder.mvideodescription.setText(video.getvideoDescription());
-
+        setFadeAnimation(holder.itemView);
     }
-
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 2.0f);
+        anim.setDuration(10000);
+        view.startAnimation(anim);
+    }
 
 
     @Override

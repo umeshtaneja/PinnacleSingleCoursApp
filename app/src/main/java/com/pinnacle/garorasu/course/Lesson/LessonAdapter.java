@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
@@ -27,11 +28,11 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     private final String color;
     private int lastPosition = -1;
 
-    public LessonAdapter(LessonView lessonView,Context context,String color,int lastPosition){
+    public LessonAdapter(LessonView lessonView, Context context, String color, int lastPosition) {
         this.context = context;
         this.color = color;
-        this.lastPosition=lastPosition;
-        lessonPresenter = new LessonPresenter(this,lessonView);
+        this.lastPosition = lastPosition;
+        lessonPresenter = new LessonPresenter(this, lessonView);
     }
 
     @Override
@@ -42,29 +43,37 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     }
 
 
-
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Lesson lesson = allLessons.get(position);
         holder.mlessonserialno.setText(lesson.getSerialno());
         holder.mlessonTitle.setText(lesson.getTitle());
         holder.mlessondescription.setText(lesson.getLessonDescription());
-        setScaleAnimation(holder.itemView,position);
-
+        setScaleAnimation(holder.itemView, position);
+        animationEffect(holder.itemView,position);
 
     }
 
 
-    private void setScaleAnimation(View view,int position) {
+    private void setScaleAnimation(View view, int position) {
 
+
+        ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setDuration(1500);
+        view.startAnimation(anim);
+
+
+}
+
+    public void animationEffect(View view,int position){
         if (position > lastPosition) {
-            ScaleAnimation anim = new ScaleAnimation(0.0f,1.0f,0.0f,1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-            anim.setDuration(1500);
-            view.startAnimation(anim);
+            Animation animation = AnimationUtils.loadAnimation(context,
+                    R.anim.up_from_bottom);
             lastPosition = position;
+            animation.start();
         }
-
     }
+
     @Override
     public int getItemCount() {
         return allLessons.size();
@@ -101,7 +110,6 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
                 }
             });
-
 
         }
     }
