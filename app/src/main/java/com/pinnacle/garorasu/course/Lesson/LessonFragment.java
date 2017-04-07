@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -50,6 +50,7 @@ public class LessonFragment extends Fragment implements LessonView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         final View view = inflater.inflate(R.layout.lessonfragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.lesson_recyclerView);
         textview = (TextView) view.findViewById(R.id.lesson_textview);
@@ -91,8 +92,8 @@ public class LessonFragment extends Fragment implements LessonView {
 
         Animator anim = ViewAnimationUtils.createCircularReveal(revealLesson, cx, cy, 0, finalRadius);
         revealLesson.setVisibility(View.VISIBLE);
-        anim.setDuration(1000);
-        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(300);
+        anim.setInterpolator(new LinearInterpolator());
         anim.start();
 
     }
@@ -121,7 +122,6 @@ public class LessonFragment extends Fragment implements LessonView {
     @Override
     public void networkUnavailable() {
         textview.setVisibility(View.VISIBLE);
-
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
     }

@@ -10,9 +10,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Fade;
-import android.transition.Slide;
-import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +37,8 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject);
+        Log.d("SubjectActivity","Transparent Navigation Bar");
+
 
         Intent i =getIntent();
         subjectObject = (Subject) i.getSerializableExtra("subjectObject");
