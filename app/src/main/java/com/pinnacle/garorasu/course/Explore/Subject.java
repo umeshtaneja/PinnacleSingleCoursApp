@@ -11,6 +11,7 @@ public class Subject implements Serializable {
     private String brief;
     private String color;
 
+
     public Subject(String title,String imgUrl,String brief,String color){
         this.title = title;
         this.imgUrl = imgUrl;

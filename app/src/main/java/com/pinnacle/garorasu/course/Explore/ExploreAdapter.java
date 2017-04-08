@@ -1,7 +1,10 @@
 package com.pinnacle.garorasu.course.Explore;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pinnacle.garorasu.course.MainActivity;
 import com.pinnacle.garorasu.course.R;
+import com.pinnacle.garorasu.course.SubjectActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,11 +52,12 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
     }
 
 
+
+
     @Override
     public int getItemCount() {
         return allSubjects.size();
     }
-
 
     @Override
     public void requstData() {
@@ -71,8 +77,6 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
         public ImageView mSubImg;
         public ViewHolder(View itemView) {
             super(itemView);
-
-
 
             viewGroup = (ViewGroup) itemView.findViewById(R.id.explore_background);
             mSubTitle = (TextView) itemView.findViewById(R.id.explore_subject_title);

@@ -60,14 +60,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
         holder.mvideodescription.setText(video.getvideoDescription());
 
-//        setFadeAnimations(holder.itemView);
+        setFadeAnimations(holder.itemView);
     }
-//        private void setFadeAnimations(View view){
-//            AlphaAnimation anim = new AlphaAnimation(0.0f,20.f);
-//            anim.setDuration(10000);
-//            view.startAnimation(anim);
+        private void setFadeAnimations(View view){
+            AlphaAnimation anim = new AlphaAnimation(0.0f,20.f);
+            anim.setDuration(15000);
+            view.startAnimation(anim);
 
-       // }
+        }
 
 
     @Override

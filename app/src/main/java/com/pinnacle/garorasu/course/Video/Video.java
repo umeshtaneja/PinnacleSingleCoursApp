@@ -8,16 +8,23 @@ public class Video {
     private String serialno;
     private String title;
     private String videoDescription;
-   // private String id;
     private String url;
 
+
+   // private String id;
+
+    public Video(){};
+
     public Video(String serialno,String title, String videoDescription,String url) {
+
         this.serialno = serialno;
         this.title = title;
         this.videoDescription = videoDescription;
-       // this.id=id;
         this.url=url;
+
+       // this.id=id;
     }
+
 
     public String getSerialno() {
         return serialno;

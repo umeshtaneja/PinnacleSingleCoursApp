@@ -123,7 +123,6 @@ public class SubjectActivity extends AppCompatActivity implements LessonListener
 
     }
 
-
     @Override
     public void videoSelect(Video video) {
         Intent intent= new Intent(getApplicationContext(),DetailActivity.class);

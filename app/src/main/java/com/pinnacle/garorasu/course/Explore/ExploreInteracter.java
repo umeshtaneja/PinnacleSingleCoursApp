@@ -24,6 +24,7 @@ public class ExploreInteracter implements ExploreInteracterView {
         presenter.onSuccess();
 
     }
+
     private class loadDataInBackground extends AsyncTask<Void,Void,Void> {
         @Override
         protected Void doInBackground(Void... params) {

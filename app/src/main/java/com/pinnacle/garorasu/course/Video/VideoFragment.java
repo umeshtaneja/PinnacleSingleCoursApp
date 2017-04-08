@@ -31,9 +31,6 @@ public class VideoFragment extends Fragment implements VideoView {
     VideoListener mVideoListener;
 
 
-
-
-
     public VideoFragment() {
         // Required empty public constructor
     }
@@ -51,7 +48,7 @@ public class VideoFragment extends Fragment implements VideoView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       final View view = inflater.inflate(R.layout.videofragment, container, false);
+        final View view = inflater.inflate(R.layout.videofragment, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.video_recyclerView);
         textview=(TextView)view.findViewById(R.id.video_textview);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_video_fragment);
