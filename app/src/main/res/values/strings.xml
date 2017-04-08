@@ -23,5 +23,6 @@
     <string name="lesson_fragment">hello_lesson_fragment</string>
     <string name="hello_practice_fragment">practice_fragment</string>
     <string name="subjectTransition" />
+    <string name="transition_string" />
 
 </resources>

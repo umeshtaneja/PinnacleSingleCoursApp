@@ -50,7 +50,7 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
 
 
     public VideoPlayFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -140,6 +140,15 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
         previewPlayer.setPlayWhenReady(true);
         return view;
       }
+
+    //Video playing after exiting app,so Added onPause method
+
+    @Override
+    public void onPause() {
+        previewPlayer.setPlayWhenReady(false);
+        super.onPause();
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -167,10 +176,7 @@ public class VideoPlayFragment extends Fragment implements SeekBar.OnSeekBarChan
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {}
 
-   // public String returnString(){
 
-
-   // }
 }
 
 

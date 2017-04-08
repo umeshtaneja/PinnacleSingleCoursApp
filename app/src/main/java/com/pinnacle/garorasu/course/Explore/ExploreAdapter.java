@@ -48,9 +48,9 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
                 .error(R.drawable.ic_menu_gallery)
                 .into(holder.mSubImg);
         Log.d("Explore Adapter","Checking animation effect");
-
     }
 
+        
 
 
 
@@ -82,14 +82,15 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
             mSubTitle = (TextView) itemView.findViewById(R.id.explore_subject_title);
             mSubBrief = (TextView) itemView.findViewById(R.id.explore_subject_brief);
             mSubImg = (ImageView) itemView.findViewById(R.id.explore_subject_icon);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     explorePresenter.onSubjectSelect(allSubjects.get(getAdapterPosition()));
-                   // Subject no=allSubjects.get(getAdapterPosition());
+
                 }
             });
+
         }
     }
 }

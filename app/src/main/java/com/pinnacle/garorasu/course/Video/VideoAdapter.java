@@ -16,8 +16,6 @@ import com.pinnacle.garorasu.course.R;
 
 import java.util.ArrayList;
 
-import static android.R.attr.value;
-
 /**
  * Created by Ideal on 2/18/2017.
  */
@@ -62,10 +60,17 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
         setFadeAnimations(holder.itemView);
     }
+<<<<<<< HEAD
         private void setFadeAnimations(View view){
             AlphaAnimation anim = new AlphaAnimation(0.0f,20.f);
             anim.setDuration(15000);
             view.startAnimation(anim);
+=======
+       private void setFadeAnimations(View view){
+         AlphaAnimation anim = new AlphaAnimation(0.0f,20.f);
+          anim.setDuration(18000);
+           view.startAnimation(anim);
+>>>>>>> a0076b958fb787f9d72a7be307bfb4d72a357d98
 
         }
 
